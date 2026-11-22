@@ -1,0 +1,45 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CODEC - dokument roboczy Alpha</title><style>body{max-width:850px;margin:40px auto;padding:0 24px;font:17px/1.6 system-ui;color:#17362f}.legal-warning{padding:16px;background:#fff1c7;border-left:4px solid #bd8611}h2,h3{line-height:1.3}</style>
+  <header><a href="index.html">← CODEC — strona główna</a> · <a href="usun-dane.html">Usuwanie danych</a></header><article class="legal-copy"><aside class="legal-warning"><strong>PROJEKT — nie jest gotową polityką do publikacji produkcyjnej w Google Play.</strong><p>Potwierdzony hosting strony: home.pl. Do uzupełnienia: operatorzy i konfiguracja sygnalizacji/STUN/TURN, okresy przechowywania logów i korespondencji wsparcia, faktyczne okresy cache dostawców, państwa przetwarzania i zasady transferów oraz właściwe podstawy przetwarzania.</p></aside>
+    <h2>Polityka prywatności CODEC</h2>
+    <p>Projekt z 12 listopada 2026. Dokument roboczy dla aplikacji CODEC (com.moj_codec).</p>
+    
+  <aside class="legal-warning"><strong>Wersja testowa Alpha.</strong> Przed wydaniem produkcyjnym wymagają doprecyzowania
+  informacje o infrastrukturze, podstawach przetwarzania i inspektorze ochrony danych (jeżeli dotyczy).</aside>
+    <h3>1. Administrator i kontakt</h3>
+    <p>Właścicielem aplikacji i administratorem danych związanych z wydaniem i infrastrukturą CODEC jest <strong>Arkadiusz Wójcik, „Wójcik”</strong>, ul. Warszawska 26,
+  26-420 Nowe Miasto nad Pilicą, Polska, NIP: <strong>PL7971921597</strong>.
+  Kontakt: <a href="mailto:arkadiusz@wojcik-contact.com">arkadiusz@wojcik-contact.com</a>.
+    Treść rozmów P2P jest przetwarzana na urządzeniach uczestników, a nie w centralnej bazie CODEC.</p>
+    <h3>2. Jakie dane przetwarza aplikacja</h3>
+    <ul>
+      <li>lokalna tożsamość kryptograficzna, nazwa profilu i identyfikator urządzenia;</li>
+      <li>zaszyfrowane lokalnie kontakty, historia wiadomości i ustawienia;</li>
+      <li>kontakty z numerami telefonu importowane na Androidzie dopiero po nadaniu uprawnienia, kontakty wskazane w selektorze iOS oraz dane dodane z VCF lub ręcznie;</li>
+      <li>krótkotrwałe dane sygnalizacyjne, adresy IP i metadane niezbędne do WebRTC, STUN/TURN oraz ochrony infrastruktury;</li>
+      <li>adres publiczny portfela, identyfikator sieci i publiczne dane transakcji blockchain, gdy użytkownik uruchomi moduł portfela.</li>
+    </ul>
+    <h3>3. Cele i podstawy</h3>
+    <p>Dane są używane do wykonania żądanych funkcji komunikatora, zapewnienia bezpieczeństwa, obsługi połączeń i realizacji obowiązków prawnych.
+    Podstawą może być wykonanie umowy, uzasadniony interes w ochronie usługi, obowiązek prawny lub zgoda — zależnie od funkcji i konfiguracji wydawcy.</p>
+    <h3>4. Odbiorcy i usługi zewnętrzne</h3>
+    <p>Operator serwera sygnalizacyjnego oraz STUN/TURN może widzieć dane sieciowe, ale nie otrzymuje kluczy treści. Po włączeniu WalletConnect/Reown
+    połączenie portfela korzysta z infrastruktury tego dostawcy i z wybranej sieci blockchain. Blockchain jest publiczny, trwały i pozostaje poza kontrolą CODEC.
+    Witryny otwierane w prywatnej przeglądarce otrzymują typowe dane sieciowe, w tym adres IP.</p>
+    <p>Na Androidzie kanał push korzysta z ntfy.sh. Serwer otrzymuje wyłącznie szyfrogramy wiadomości i sygnalizacji oraz losowe nazwy kanałów, adresy IP i czasy żądań.
+    Nie otrzymuje kluczy ani książki telefonicznej. Kanały publicznej usługi nie mają kontroli dostępu: poufność treści opiera się na szyfrowaniu, a nazwy są wyprowadzane z sekretu kontaktu.
+    Operator może obserwować metadane i powiązania między kanałami. Push można wyłączyć w ustawieniach.</p>
+    <h3>5. Okres przechowywania</h3>
+    <p>Dane profilu, kontakty i historia pozostają na urządzeniu do ich usunięcia przez użytkownika. Dane kojarzenia powinny być usuwane po wygaśnięciu sesji,
+    a logi bezpieczeństwa według okresu określonego przez wydawcę. Funkcja „Usuń wszystkie dane” kasuje lokalny sejf, ustawienia i dane tymczasowe aplikacji.</p>
+    <p>Kod aplikacji zakłada 12-godzinną pamięć podręczną ntfy; rzeczywisty okres przechowywania po stronie dostawcy nie został jeszcze potwierdzony. Wiadomości push wygasają w CODEC po 12 godzinach, a wywołania i sygnalizacja po 2 minutach.
+    Android zapisuje odebrane szyfrogramy w prywatnej kolejce do odszyfrowania po odblokowaniu sejfu. Kasowanie danych zatrzymuje usługę i czyści tę kolejkę, lecz nie usuwa kopii z cache dostawcy.</p>
+    <p>Aby wyświetlić nazwę dzwoniącego przy zamkniętym sejfie, Android przechowuje kopię nazwy kontaktu w prywatnych ustawieniach powiadomień, poza szyfrowanym sejfem. Nazwa nie jest wysyłana jawnie do ntfy. Treść wiadomości i klucze sejfu nie są zapisywane w tych ustawieniach. Funkcja usunięcia wszystkich danych usuwa również te nazwy.</p>
+    <h3>6. Uprawnienia użytkownika</h3>
+    <p>W zakresie, w jakim wydawca jest administratorem, użytkownik może żądać dostępu, sprostowania, usunięcia, ograniczenia, przeniesienia lub sprzeciwić się
+    przetwarzaniu oraz złożyć skargę do Prezesa UODO. Danych istniejących wyłącznie na urządzeniu lub w publicznym blockchainie wydawca może nie być w stanie odzyskać ani usunąć.</p>
+    <h3>7. Bezpieczeństwo i transfery</h3>
+    <p>CODEC wykorzystuje szyfrowanie, ale żaden system nie gwarantuje absolutnego bezpieczeństwa. Wydawca powinien wskazać państwa przetwarzania,
+    mechanizmy transferu poza EOG i pełną listę podmiotów przetwarzających przed wydaniem produkcyjnym.</p>
+    <h3>8. Kontakt i zmiany</h3>
+    <p>Ten dokument przedstawia projekt polityki na podstawie materiałów aplikacji. Istotne zmiany wymagają czytelnego powiadomienia użytkownika.</p>
+  </article></html>
